@@ -221,7 +221,7 @@ yearSelect.addEventListener("change", (e) => {
 searchInput.addEventListener("input", (e) => performSearch(e.target.value));
 
 // Старт
-if (API_CLIENT_ID === "YOUR_CLIENT_ID") {
+if (API_CLIENT_ID === CONFIG.API_CLIENT_ID) {
     contentArea.innerHTML = `<div class="error">⚠️ Вставьте API ключи ВОЗ в файл app.js</div>`;
 } else {
     refresh();
