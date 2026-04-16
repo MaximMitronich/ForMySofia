@@ -1,0 +1,5 @@
+// config.js
+const CONFIG = {
+    API_CLIENT_ID: "ba5f8787-4507-47ec-851c-490661aeaf52_a0087f2d-6494-4406-8153-f12cbb1cbfb8",
+    API_CLIENT_SECRET: "gr2G12NnT0pJJqriE5i5Ke3AmUWliSw9/bb972Wt7c0="
+};
