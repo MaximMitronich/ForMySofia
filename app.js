@@ -1,6 +1,6 @@
-// ⚠️ ВСТАВЬТЕ ВАШИ API КЛЮЧИ ОТ ВОЗ
-const API_CLIENT_ID = "YOUR_CLIENT_ID";
-const API_CLIENT_SECRET = "YOUR_CLIENT_SECRET";
+// Конфиг из config.js
+const API_CLIENT_ID = CONFIG.API_CLIENT_ID;
+const API_CLIENT_SECRET = CONFIG.API_CLIENT_SECRET;
 
 let currentLang = "ru";
 let currentYear = "2026";
@@ -19,7 +19,7 @@ const footerText = document.getElementById("footerText");
 // Получение токена
 async function getAccessToken() {
     if (currentToken) return currentToken;
-    const tokenUrl = "https://icdapihome2-eme0b9bdf4fafkbg.northeurope-01.azurewebsites.net/icdapi/token";
+    const tokenUrl = "https://icdapihome2-eme0b9bd4fafkbg.northeurope-01.azurewebsites.net/icdapi/token";
     const credentials = btoa(`${API_CLIENT_ID}:${API_CLIENT_SECRET}`);
     const response = await fetch(tokenUrl, {
         method: "POST",
@@ -214,15 +214,11 @@ langSelect.addEventListener("change", (e) => {
     currentLang = e.target.value;
     refresh();
 });
-yearSelect.addEventListener("change", (e) => {
+yearSelect.addEventListener("change", (e) {
     currentYear = e.target.value;
     refresh();
 });
 searchInput.addEventListener("input", (e) => performSearch(e.target.value));
 
-// Старт
-if (API_CLIENT_ID === CONFIG.API_CLIENT_ID) {
-    contentArea.innerHTML = `<div class="error">⚠️ Вставьте API ключи ВОЗ в файл app.js</div>`;
-} else {
-    refresh();
-}
+// Запуск
+refresh();
